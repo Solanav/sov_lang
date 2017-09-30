@@ -2,9 +2,11 @@ import sys
 import  lib00 as l
 
 def cleann(file):
-    instruc = file.read().split(";")
-    for x in range(0, len(instruc)):
-        print(instruc[x])
+    line = file.read().split("\n")
+    for x in range(0, len(line)):
+        if "\t" in line:
+            temp = line.split("t", 1)
+            print(temp)
 
 
 def main():
