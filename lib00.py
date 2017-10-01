@@ -1,25 +1,40 @@
-def clear(lines):
-    print("\n" * lines)
+""" Library for functions """
 
-def binput(data):
-    while(True):
-        output = int(input(data))
-        if output==1 or output==0:
-            return output
-        else:
-            print("Error: not binary input")
+def nand(var0, var1, result):
+    """ var0 = variable 1
+        var1 = variable 2
+        result = result of nand x and y 
+    """
+    return "if "+var0+"=="+var1+" and "+var0+"==1:\n\t"+result+"=0\nelse:\n\t"+result+"=1\n"
 
-def neg_(in0):
-    if in0 == 0:
-        return 1
+def varinput(name):
+    """ creates variable and gets value with input() """
+    return name+"=int(input(\""+name+" >>> \"))\n"
+
+def var(name, value):
+    """ creates variable and initialices it to 0 """
+    if value == 0:
+        return name+"=0\n"
     else:
-        return 0
+        return name+"=1\n"
 
-def and_(in0, in1):
-    if in0==1 and in1==1:
-        return 1
-    else:
-        return 0
+def printvar(name):
+    """ prints given variable """
+    return "print(\"\\n"+name+" >>> \"+str("+name+"))\n"
 
-def nand_(in0, in1):
-    return neg_(and_(in0, in1))
+def info(data):
+    """ prints info """
+    print("Info: "+data)
+
+def position(var0, list):
+    """ returns postion of something in a list """
+    return list.index(var0)
+
+def clean(file):
+    """ divides file in lines and instructions """
+    line = file.read().split("\n")
+    inst = []
+    for x in line:
+        inst.extend(x.split())
+
+    return inst
