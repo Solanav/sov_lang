@@ -1,7 +1,7 @@
 import sys
 import lib
 
-def clean(file0): # divides file in lines and instructions
+def clean(file0):
     line = file0.read().split("\n")
     inst = []
     for x in line:
@@ -9,7 +9,7 @@ def clean(file0): # divides file in lines and instructions
 
     return inst
 
-def sovpile(inst): # creates file compiled into python
+def sovpile(inst):
     file0 = open(sys.argv[1].split(".")[0] + ".py", "w+")
     for inst_name in inst:
         if inst_name == "in":
@@ -113,7 +113,6 @@ def sovpile(inst): # creates file compiled into python
                 else:
                     file0.write(lib.printvar(inst[pos]))
                 pos = pos + 1
-
 
 def main():
     file0 = open(sys.argv[1], "r")
