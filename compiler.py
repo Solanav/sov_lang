@@ -115,10 +115,13 @@ def sovpile(inst):
                 pos = pos + 1
 
 def main():
-    file0 = open(sys.argv[1], "r")
-    inst = clean(file0)
-    sovpile(inst)
-    print(">> Completed <<<")
+    if sys.argv[1].split(".")[1] == "sov":
+        file0 = open(sys.argv[1], "r")
+        inst = clean(file0)
+        sovpile(inst)
+        print(">>> Completed <<<")
+    else:
+        print("error")
 
 if __name__=="__main__":
     main()
