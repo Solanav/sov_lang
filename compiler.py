@@ -2,6 +2,11 @@ import sys
 import lib
 
 def clean(file0):
+    """ Gets instructions out of file
+        and returns them in a list
+
+        file0 : file to clean
+    """
     line = file0.read().split("\n")
     inst = []
     for x in line:
@@ -10,6 +15,12 @@ def clean(file0):
     return inst
 
 def sovpile(inst):
+    """ Takes instructions and writes the python
+        equivalent in a new file named the same as
+        the .sov one but with .py extension
+
+        inst : instructions from the clean() function
+    """
     file0 = open(sys.argv[1].split(".")[0] + ".py", "w+")
     for inst_name in inst:
         if inst_name == "in":
@@ -115,7 +126,7 @@ def sovpile(inst):
                 pos = pos + 1
 
 def main():
-    if sys.argv[1].split(".")[1] == "sov":
+    if sys.argv[1].split(".")[1] == "sov": # Check  if file is .sov
         file0 = open(sys.argv[1], "r")
         inst = clean(file0)
         sovpile(inst)

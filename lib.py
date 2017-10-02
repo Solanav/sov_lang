@@ -1,29 +1,29 @@
 """ Library for functions """
 def dand(var0, var1, result):
-    """ var0 = variable 1
-        var1 = variable 2
-        result = result of and x and y 
+    """ var0 : variable 1
+        var1 : variable 2
+        result : result of and x and y 
     """
     return "if "+var0+"=="+var1+" and "+var0+"==1:\n\t"+result+"=1\nelse:\n\t"+result+"=0\n"
 
 def dnand(var0, var1, result):
-    """ var0 = variable 1
-        var1 = variable 2
-        result = result of nand x and y 
+    """ var0 : variable 1
+        var1 : variable 2
+        result : result of nand x and y 
     """
     return "if "+var0+"=="+var1+" and "+var0+"==1:\n\t"+result+"=0\nelse:\n\t"+result+"=1\n"
 
 def dor(var0, var1, result):
-    """ var0 = variable 1
-        var1 = variable 2
-        result = result of or x and y 
+    """ var0 : variable 1
+        var1 : variable 2
+        result : result of or x and y 
     """
     return "if "+var0+"==1 or "+var1+"==1:\n\t"+result+"=1\nelse:\n\t"+result+"=0"
 
 def dnor(var0, var1, result):
-    """ var0 = variable 1
-        var1 = variable 2
-        result = result of or x and y 
+    """ var0 : variable 1
+        var1 : variable 2
+        result : result of or x and y 
     """
     return "if "+var0+"==1 or "+var1+"==1:\n\t"+result+"=0\nelse:\n\t"+result+"=1"
 
