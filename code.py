@@ -1,4 +1,0 @@
-if DATA0==1 or DATA1==1:
-	RESULT=0
-else:
-	RESULT=1
