@@ -36,6 +36,23 @@ def sovpile(inst): # creates file compiled into python
                         file0.write(lib.var(inst[pos], 0))
                 pos = pos + 1
         
+        elif "and" in inst_name and "nand" not in inst_name :
+            sov = True
+            pos = lib.position(inst_name, inst) + 1
+            while sov:
+                if inst_name == "and.":
+                    sov = False
+                else:
+                    if pos+3 < len(inst):
+                        if inst[pos + 3] == "and.":
+                            lib.info("Data correct for "+inst_name)
+                            var0 = inst[pos]
+                            var1 = inst[pos + 1]
+                            result = inst[pos + 2]
+                            file0.write(lib.dand(var0, var1, result))
+                            sov = False
+                pos = pos + 1
+
         elif "nand" in inst_name:
             sov = True
             pos = lib.position(inst_name, inst) + 1
@@ -46,10 +63,44 @@ def sovpile(inst): # creates file compiled into python
                     if pos+3 < len(inst):
                         if inst[pos + 3] == "nand.":
                             lib.info("Data correct for "+inst_name)
-                            var1 = inst[pos]
-                            var2 = inst[pos + 1]
-                            var3 = inst[pos + 2]
-                            file0.write(lib.nand(var1, var2, var3))
+                            var0 = inst[pos]
+                            var1 = inst[pos + 1]
+                            result = inst[pos + 2]
+                            file0.write(lib.dnand(var0, var1, result))
+                            sov = False
+                pos = pos + 1
+
+        elif "or" in inst_name and "nor" not in inst_name:
+            sov = True
+            pos = lib.position(inst_name, inst) + 1
+            while sov:
+                if inst_name == "or.":
+                    sov = False
+                else:
+                    if pos+3 < len(inst):
+                        if inst[pos + 3] == "or.":
+                            lib.info("Data correct for "+inst_name)
+                            var0 = inst[pos]
+                            var1 = inst[pos + 1]
+                            result = inst[pos + 2]
+                            file0.write(lib.dor(var0, var1, result))
+                            sov = False
+                pos = pos + 1
+
+        elif "nor" in inst_name:
+            sov = True
+            pos = lib.position(inst_name, inst) + 1
+            while sov:
+                if inst_name == "nor.":
+                    sov = False
+                else:
+                    if pos+3 < len(inst):
+                        if inst[pos + 3] == "nor.":
+                            lib.info("Data correct for "+inst_name)
+                            var0 = inst[pos]
+                            var1 = inst[pos + 1]
+                            result = inst[pos + 2]
+                            file0.write(lib.dnor(var0, var1, result))
                             sov = False
                 pos = pos + 1
 
