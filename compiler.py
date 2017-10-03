@@ -10,7 +10,7 @@ def clean(file0):
     line = file0.read().split("\n")
     inst = []
     for x in line:
-        inst.extend(x.split())
+        inst.extend(x.lower().split())
 
     return inst
 
