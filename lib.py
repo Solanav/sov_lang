@@ -1,5 +1,16 @@
 """ Library for functions """
 
+def dnot(var0, result):
+    """ var0 : variable a cambiar
+        result: var0 inversa
+    """
+    return "\tif "+var0+"==1:\n\t\t"+var0+"=0\n\telse:\n\t\t"+var0+"=1\n"
+
+    if var0==1:
+        var0=0
+    else:
+        var0=1
+
 def dand(var0, var1, result):
     """ var0 : variable 1
         var1 : variable 2

@@ -52,6 +52,21 @@ def sovpile(inst):
                         file0.write(lib.var(inst[pos], 0))
                 pos = pos + 1
         
+        elif "not" in inst_name:
+            sov = True
+            pos = lib.position(inst_name, inst) + 1
+            while sov:
+                if inst_name == "not.":
+                    sov = False
+                else:
+                    if pos+2 < len(inst):
+                        if inst[pos + 2] == "not.":
+                            lib.info("Data correct for "+inst_name)
+                            var0 = inst[pos]
+                            result = inst[pos + 1]
+                            file0.write(lib.dnot(var0, result))
+                            sov = False
+
         elif "and" in inst_name and "nand" not in inst_name :
             sov = True
             pos = lib.position(inst_name, inst) + 1
@@ -129,6 +144,8 @@ def sovpile(inst):
                 else:
                     file0.write(lib.printvar(inst[pos]))
                 pos = pos + 1
+        
+
     ending = """
 elif sys.argv[1] == "-a":
     try:
