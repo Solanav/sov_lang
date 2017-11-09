@@ -27,18 +27,15 @@ There are two types of **variables**:
 1. The ones you want to define when it runs
 ```
 in
-  variable0
-  VAR1
-  var2
-  v3
+  input0
+  input1
 in.
 ```
 2. The ones that won't be changed by the user
 ```
 var
-  whatever0
-  same1
-  ggez2
+  output0
+  output1
 var.
 ```
 
